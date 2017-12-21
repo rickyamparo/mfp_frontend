@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet, TouchableOpacity, Text, StatusBar } from 'react-native';
+import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native';
 
 export default class LoginForm extends Component {
   render () {
@@ -21,8 +21,11 @@ export default class LoginForm extends Component {
           returnKeyLabel='go'
           style={styles.input}
         />
-        <TouchableOpacity style={styles.buttonContainer}>
+        <TouchableOpacity style={styles.buttonLogin}>
           <Text style={styles.buttonText}>LOGIN</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.buttonCreate}>
+          <Text style={styles.buttonText}>CREATE ACCOUNT</Text>
         </TouchableOpacity>
       </View>
     )
@@ -40,8 +43,13 @@ const styles = StyleSheet.create({
     color: '#FFF',
     paddingHorizontal: 10
   },
-  buttonContainer: {
+  buttonLogin: {
     backgroundColor: '#9b59b6',
+    paddingVertical: 8,
+    marginBottom: 30
+  },
+  buttonCreate: {
+    backgroundColor: '#8e44ad',
     paddingVertical: 8
   },
   buttonText: {
