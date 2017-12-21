@@ -1,11 +1,13 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, StatusBar } from 'react-native';
 import RegisterForm from './register_form'
 
 export default class Register extends Component {
   render() {
     return (
       <View style={styles.container}>
+
+        <StatusBar barStyle='light-content'/>
 
         <View style={styles.logoContainer}>
           <Image

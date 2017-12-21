@@ -6,6 +6,7 @@ export default class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar barStyle='light-content'/>
         <Text style={styles.header}> A React Native App by Ricky Amparo</Text>
         <View style={styles.logoContainer}>
           <Image

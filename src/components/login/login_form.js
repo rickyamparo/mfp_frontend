@@ -5,9 +5,6 @@ export default class LoginForm extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <StatusBar
-          barStyle='light-content'
-          />
         <TextInput
           placeholder='email'
           placeholderTextColor='rgba(255,255,255,0.7)'
