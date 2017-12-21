@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image } from 'react-native';
+import { View, Text, StyleSheet, Image, StatusBar, TouchableOpacity } from 'react-native';
 import LoginForm from './login_form'
 
 export default class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
+        <StatusBar barStyle='light-content'/>
         <Text style={styles.header}> A React Native App by Ricky Amparo</Text>
         <View style={styles.logoContainer}>
           <Image
@@ -43,7 +44,8 @@ const styles = StyleSheet.create({
     marginTop: 10,
     textAlign: 'center',
     width: 150,
-    opacity: 0.7
+    opacity: 0.7,
+    fontSize: 20
   },
   header: {
     color: '#FFF',

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native';
 
-export default class LoginForm extends Component {
+export default class RegisterForm extends Component {
   render () {
     return (
       <View style={styles.container}>
@@ -18,13 +18,17 @@ export default class LoginForm extends Component {
           placeholder='password'
           placeholderTextColor='rgba(255,255,255,0.7)'
           secureTextEntry
+          returnKeyLabel='next'
+          style={styles.input}
+        />
+        <TextInput
+          placeholder='confirm password'
+          placeholderTextColor='rgba(255,255,255,0.7)'
+          secureTextEntry
           returnKeyLabel='go'
           style={styles.input}
         />
-        <TouchableOpacity style={styles.buttonLogin}>
-          <Text style={styles.buttonText}>LOGIN</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonCreate}>
+        <TouchableOpacity style={styles.buttonContainer}>
           <Text style={styles.buttonText}>CREATE ACCOUNT</Text>
         </TouchableOpacity>
       </View>
@@ -43,13 +47,8 @@ const styles = StyleSheet.create({
     color: '#FFF',
     paddingHorizontal: 10
   },
-  buttonLogin: {
+  buttonContainer: {
     backgroundColor: '#9b59b6',
-    paddingVertical: 8,
-    marginBottom: 30
-  },
-  buttonCreate: {
-    backgroundColor: '#8e44ad',
     paddingVertical: 8
   },
   buttonText: {
