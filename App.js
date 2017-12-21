@@ -8,7 +8,7 @@ import Register from './src/components/register/register'
 export default class App extends Component<{}> {
   render() {
     return (
-      <Splash />
+      <Login />
     );
   }
 }
