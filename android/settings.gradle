@@ -1,0 +1,3 @@
+rootProject.name = 'mfp_frontend'
+
+include ':app'
