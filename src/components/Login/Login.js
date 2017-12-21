@@ -6,7 +6,7 @@ export default class Login extends Component {
   render() {
     return (
       <View style={styles.container}>
-
+        <Text style={styles.header}> A React Native App by Ricky Amparo</Text>
         <View style={styles.logoContainer}>
           <Image
             style={styles.logo}
@@ -27,7 +27,7 @@ export default class Login extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#16a085"
+    backgroundColor: '#16a085'
   },
   logoContainer: {
     alignItems: 'center',
@@ -43,6 +43,12 @@ const styles = StyleSheet.create({
     marginTop: 10,
     textAlign: 'center',
     width: 150,
+    opacity: 0.7
+  },
+  header: {
+    color: '#FFF',
+    marginTop: 5,
+    textAlign: 'center',
     opacity: 0.7
   }
 })
