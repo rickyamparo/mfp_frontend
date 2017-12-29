@@ -3,6 +3,9 @@ import { View, Text, StyleSheet, Image, StatusBar, TouchableOpacity } from 'reac
 import LoginForm from './login_form'
 
 export default class Login extends Component {
+  static navigationOptions = {
+    header: null
+  };
   render() {
     return (
       <View style={styles.container}>
