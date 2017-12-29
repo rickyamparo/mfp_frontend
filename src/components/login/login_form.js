@@ -3,6 +3,7 @@ import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-nativ
 
 export default class LoginForm extends Component {
   render () {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <TextInput
@@ -24,7 +25,10 @@ export default class LoginForm extends Component {
         <TouchableOpacity style={styles.buttonLogin}>
           <Text style={styles.buttonText}>LOGIN</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.buttonCreate}>
+        <TouchableOpacity
+          style={styles.buttonCreate}
+          onPress={() => navigate('Register')}
+        >
           <Text style={styles.buttonText}>CREATE ACCOUNT</Text>
         </TouchableOpacity>
       </View>

@@ -13,11 +13,11 @@ export default class Login extends Component {
             style={styles.logo}
             source={require('../../images/home-icon.png')}
           />
-          <Text style={styles.title}>A Location Tracking & Predicting App</Text>
+          <Text style={styles.title}>A Location Tracking & Prediction App</Text>
         </View>
 
         <View style={styles.formContainer}>
-          <LoginForm />
+          <LoginForm navigation = {this.props.navigation}/>
         </View>
 
       </View>
