@@ -3,6 +3,9 @@ import { View, Text, StyleSheet, Image, StatusBar } from 'react-native';
 import RegisterForm from './register_form'
 
 export default class Register extends Component {
+  static navigationOptions = {
+    header: null
+  };
   render() {
     return (
       <View style={styles.container}>
