@@ -27,9 +27,23 @@ const registerUser = (email, name, password, passwordConfirmation) => {
 }
 
 export default class RegisterForm extends Component {
+  constructor(props){
+    super(props);
+    this.state = { nameInput: ''}
+    this.state = { emailInput: ''}
+    this.state = { passwordInput: ''}
+    this.state = { passwordConfirmation: ''}
+  }
   render () {
     return (
       <View style={styles.container}>
+        <TextInput
+          placeholder='username'
+          placeholderTextColor='rgba(255,255,255,0.7)'
+          autoCapitalize='none'
+          autoCorrect={false}
+          style={styles.input}
+        />
         <TextInput
           placeholder='email'
           placeholderTextColor='rgba(255,255,255,0.7)'
@@ -38,6 +52,9 @@ export default class RegisterForm extends Component {
           autoCapitalize='none'
           autoCorrect={false}
           style={styles.input}
+          onChangeText={
+            (text) => this.setState({emailInput: text})
+          }
         />
         <TextInput
           placeholder='password'
@@ -45,6 +62,9 @@ export default class RegisterForm extends Component {
           secureTextEntry
           returnKeyLabel='next'
           style={styles.input}
+          onChangeText={
+            (text) => this.setState({passwordInput: text})
+          }
         />
         <TextInput
           placeholder='confirm password'
@@ -52,6 +72,9 @@ export default class RegisterForm extends Component {
           secureTextEntry
           returnKeyLabel='go'
           style={styles.input}
+          onChangeText={
+            (text) => this.setState({passwordConfirmation: text})
+          }
         />
         <TouchableOpacity style={styles.buttonContainer}>
           <Text style={styles.buttonText}>CREATE ACCOUNT</Text>

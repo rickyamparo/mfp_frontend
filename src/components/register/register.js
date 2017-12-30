@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { View, Text, StyleSheet, Image, StatusBar } from 'react-native';
+import { View, Text, StyleSheet, Image, StatusBar, } from 'react-native';
 import RegisterForm from './register_form'
 
 export default class Register extends Component {
@@ -11,15 +11,9 @@ export default class Register extends Component {
       <View style={styles.container}>
         <StatusBar barStyle='light-content'/>
         <Text style={styles.header}> A React Native App by Ricky Amparo</Text>
-        <View style={styles.logoContainer}>
-          <Image
-            style={styles.logo}
-            source={require('../../images/home-icon.png')}
-          />
-          <Text style={styles.info}>Please Enter An Email and Password</Text>
-        </View>
+        <Text style={styles.info}>Account Registration</Text>
 
-        <View style={styles.formContainer}>
+        <View>
           <RegisterForm />
         </View>
 
