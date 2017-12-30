@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity, Text, KeyboardAvoidingView } from 'react-native';
+import styles from '../../../src/styles/register/registerFormStyles'
 
 const registerUser = (email, name, password, passwordConfirmation) => {
   return fetch('https://vast-wildwood-58678.herokuapp.com/users', {
@@ -86,24 +87,3 @@ export default class RegisterForm extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 20
-  },
-  input: {
-    height: 40,
-    backgroundColor: 'rgba(255,255,255,0.2)',
-    marginBottom: 15,
-    color: '#FFF',
-    paddingHorizontal: 10
-  },
-  buttonContainer: {
-    backgroundColor: '#9b59b6',
-    paddingVertical: 8
-  },
-  buttonText: {
-    textAlign: 'center',
-    color: '#FFF'
-  }
-})
