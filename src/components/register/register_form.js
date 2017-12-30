@@ -1,10 +1,49 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { View, TextInput, StyleSheet, TouchableOpacity, Text, KeyboardAvoidingView } from 'react-native';
+
+const registerUser = (email, name, password, passwordConfirmation) => {
+  return fetch('https://vast-wildwood-58678.herokuapp.com/users', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      user:{
+        name: name,
+        email: email,
+        password: password,
+        password_confirmation: passwordConfirmation
+      }
+    })
+  })
+  .then((response) => response.json())
+  .then((responseJson) => {
+    alert(responseJson.name)
+  })
+  .catch((error) => {
+    alert(error)
+  })
+}
 
 export default class RegisterForm extends Component {
+  constructor(props){
+    super(props);
+    this.state = { nameInput: ''}
+    this.state = { emailInput: ''}
+    this.state = { passwordInput: ''}
+    this.state = { passwordConfirmation: ''}
+  }
   render () {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container}>
+        <TextInput
+          placeholder='username'
+          placeholderTextColor='rgba(255,255,255,0.7)'
+          autoCapitalize='none'
+          autoCorrect={false}
+          style={styles.input}
+        />
         <TextInput
           placeholder='email'
           placeholderTextColor='rgba(255,255,255,0.7)'
@@ -13,6 +52,9 @@ export default class RegisterForm extends Component {
           autoCapitalize='none'
           autoCorrect={false}
           style={styles.input}
+          onChangeText={
+            (text) => this.setState({emailInput: text})
+          }
         />
         <TextInput
           placeholder='password'
@@ -20,6 +62,9 @@ export default class RegisterForm extends Component {
           secureTextEntry
           returnKeyLabel='next'
           style={styles.input}
+          onChangeText={
+            (text) => this.setState({passwordInput: text})
+          }
         />
         <TextInput
           placeholder='confirm password'
@@ -27,11 +72,17 @@ export default class RegisterForm extends Component {
           secureTextEntry
           returnKeyLabel='go'
           style={styles.input}
+          onChangeText={
+            (text) => this.setState({passwordConfirmation: text})
+          }
         />
-        <TouchableOpacity style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() => registerUser(this.state.emailInput, this.state.nameInput, this.state.passwordInput, this.state.passwordConfirmation)}
+         >
           <Text style={styles.buttonText}>CREATE ACCOUNT</Text>
         </TouchableOpacity>
-      </View>
+      </KeyboardAvoidingView>
     )
   }
 }
