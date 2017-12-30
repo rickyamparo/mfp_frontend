@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import styles from '../../../src/styles/login/loginFormStyles'
 
 const doSignIn = (email, password) => {
   return fetch('https://vast-wildwood-58678.herokuapp.com/authenticate', {
@@ -72,29 +73,3 @@ export default class LoginForm extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    padding: 20
-  },
-  input: {
-    height: 40,
-    backgroundColor: 'rgba(255,255,255,0.2)',
-    marginBottom: 15,
-    color: '#FFF',
-    paddingHorizontal: 10
-  },
-  buttonLogin: {
-    backgroundColor: '#9b59b6',
-    paddingVertical: 8,
-    marginBottom: 30
-  },
-  buttonCreate: {
-    backgroundColor: '#8e44ad',
-    paddingVertical: 8
-  },
-  buttonText: {
-    textAlign: 'center',
-    color: '#FFF'
-  }
-})
