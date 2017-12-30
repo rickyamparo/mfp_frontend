@@ -16,7 +16,7 @@ const doSignIn = (email, password) => {
   })
   .then((response) => response.json())
   .then((responseJson) => {
-    alert(responseJson.auth_token)
+    return responseJson.auth_token
   })
   .catch((error) => {
     alert(error)
@@ -59,7 +59,12 @@ export default class LoginForm extends Component {
         />
         <TouchableOpacity
           style={styles.buttonLogin}
-          onPress={() => doSignIn(this.state.emailInput, this.state.passwordInput)}
+          onPress={
+            () => doSignIn(this.state.emailInput, this.state.passwordInput)
+            .then((auth_token) => {
+              navigate('Dashboard')
+            })
+          }
         >
           <Text style={styles.buttonText}>LOGIN</Text>
         </TouchableOpacity>
