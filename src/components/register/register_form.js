@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { View, TextInput, StyleSheet, TouchableOpacity, Text, KeyboardAvoidingView } from 'react-native';
 
 const registerUser = (email, name, password, passwordConfirmation) => {
   return fetch('https://vast-wildwood-58678.herokuapp.com/users', {
@@ -17,7 +17,7 @@ const registerUser = (email, name, password, passwordConfirmation) => {
       }
     })
   })
-  .then((response) => reponse.json())
+  .then((response) => response.json())
   .then((responseJson) => {
     alert(responseJson.name)
   })
@@ -36,7 +36,7 @@ export default class RegisterForm extends Component {
   }
   render () {
     return (
-      <View style={styles.container}>
+      <KeyboardAvoidingView style={styles.container}>
         <TextInput
           placeholder='username'
           placeholderTextColor='rgba(255,255,255,0.7)'
@@ -76,10 +76,13 @@ export default class RegisterForm extends Component {
             (text) => this.setState({passwordConfirmation: text})
           }
         />
-        <TouchableOpacity style={styles.buttonContainer}>
+        <TouchableOpacity
+          style={styles.buttonContainer}
+          onPress={() => registerUser(this.state.emailInput, this.state.nameInput, this.state.passwordInput, this.state.passwordConfirmation)}
+         >
           <Text style={styles.buttonText}>CREATE ACCOUNT</Text>
         </TouchableOpacity>
-      </View>
+      </KeyboardAvoidingView>
     )
   }
 }

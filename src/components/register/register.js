@@ -13,7 +13,7 @@ export default class Register extends Component {
         <Text style={styles.header}> A React Native App by Ricky Amparo</Text>
         <Text style={styles.info}>Account Registration</Text>
 
-        <View>
+        <View style={styles.formContainer}>
           <RegisterForm />
         </View>
 
@@ -30,7 +30,7 @@ const styles = StyleSheet.create({
   logoContainer: {
     alignItems: 'center',
     flexGrow: 1,
-    marginTop: 25
+    justifyContent: 'center'
   },
   logo: {
     width: 100,
