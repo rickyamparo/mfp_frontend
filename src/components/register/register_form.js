@@ -1,6 +1,31 @@
 import React, { Component } from 'react';
 import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native';
 
+const registerUser = (email, name, password, passwordConfirmation) => {
+  return fetch('https://vast-wildwood-58678.herokuapp.com/users', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      user:{
+        name: name,
+        email: email,
+        password: password,
+        password_confirmation: passwordConfirmation
+      }
+    })
+  })
+  .then((response) => reponse.json())
+  .then((responseJson) => {
+    alert(responseJson.name)
+  })
+  .catch((error) => {
+    alert(error)
+  })
+}
+
 export default class RegisterForm extends Component {
   render () {
     return (
