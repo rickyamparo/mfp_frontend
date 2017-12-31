@@ -15,7 +15,7 @@ export const SimpleApp = StackNavigator({
 export default class App extends Component<{}> {
   render() {
     return (
-      <SimpleApp />
+      <Dashboard />
     );
   }
 }

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { View, TextInput, StyleSheet, TouchableOpacity, Text, AsyncStorage } from 'react-native';
 import styles from '../../../src/styles/login/loginFormStyles'
 
 const doSignIn = (email, password) => {
@@ -16,7 +16,7 @@ const doSignIn = (email, password) => {
   })
   .then((response) => response.json())
   .then((responseJson) => {
-    alert(responseJson.auth_token)
+    return responseJson.auth_token
   })
   .catch((error) => {
     alert(error)
@@ -59,7 +59,19 @@ export default class LoginForm extends Component {
         />
         <TouchableOpacity
           style={styles.buttonLogin}
-          onPress={() => doSignIn(this.state.emailInput, this.state.passwordInput)}
+          onPress={
+            () => doSignIn(this.state.emailInput, this.state.passwordInput)
+            .then(async (auth_token) => {
+              try {
+                await AsyncStorage.setItem('auth_token', auth_token)
+              } catch (error) {
+                alert(error)
+              }
+            })
+            .then((auth_token) => {
+              navigate('Dashboard')
+            })
+          }
         >
           <Text style={styles.buttonText}>LOGIN</Text>
         </TouchableOpacity>
