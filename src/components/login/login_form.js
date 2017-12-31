@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet, TouchableOpacity, Text } from 'react-native';
+import { View, TextInput, StyleSheet, TouchableOpacity, Text, AsyncStorage } from 'react-native';
 import styles from '../../../src/styles/login/loginFormStyles'
 
 const doSignIn = (email, password) => {
@@ -61,6 +61,13 @@ export default class LoginForm extends Component {
           style={styles.buttonLogin}
           onPress={
             () => doSignIn(this.state.emailInput, this.state.passwordInput)
+            .then(async (auth_token) => {
+              try {
+                await AsyncStorage.setItem('auth_token', auth_token)
+              } catch (error) {
+                alert(error)
+              }
+            })
             .then((auth_token) => {
               navigate('Dashboard')
             })
