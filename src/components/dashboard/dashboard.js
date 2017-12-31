@@ -69,7 +69,7 @@ export default class Dashboard extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#16a085'
+    backgroundColor: '#075473'
   },
   logoContainer: {
     alignItems: 'center',

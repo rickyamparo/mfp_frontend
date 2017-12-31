@@ -4,7 +4,7 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#16a085'
+    backgroundColor: '#0DA8AD'
   },
   logoContainer: {
     alignItems: 'center',
