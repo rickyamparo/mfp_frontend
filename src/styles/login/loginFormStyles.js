@@ -13,12 +13,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10
   },
   buttonLogin: {
-    backgroundColor: '#9b59b6',
+    backgroundColor: '#09305B',
     paddingVertical: 8,
     marginBottom: 30
   },
   buttonCreate: {
-    backgroundColor: '#8e44ad',
+    backgroundColor: '#09305B',
     paddingVertical: 8
   },
   buttonText: {
