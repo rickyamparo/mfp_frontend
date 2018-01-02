@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, TextInput, TouchableOpacity, Text, AsyncStorage, StatusBar } from 'react-native';
+import { View, Image, StyleSheet, TextInput, TouchableOpacity, Text, AsyncStorage, StatusBar } from 'react-native';
 
 export default class LocationTracker extends Component {
 
@@ -16,7 +16,29 @@ export default class LocationTracker extends Component {
   }
   render (){
     return (
-      <Text> Hello World!!!!</Text>
+      <View style={styles.container}>
+        <StatusBar barStyle='light-content'/>
+        <View>
+          <Text style={styles.currentLocation}> Your Current Location Is: </Text>
+        </View>
+        <View>
+          <Text style={styles.currentLocation}> View Archived Locations </Text>
+        </View
+      </View>
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#0DA8AD'
+  },
+  currentLocation: {
+    color: '#FFF',
+    marginTop: 10,
+    opacity: 0.7,
+    fontSize: 20,
+    textAlign: 'center'
+  }
+})
