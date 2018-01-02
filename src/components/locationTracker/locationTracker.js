@@ -22,10 +22,10 @@ export default class LocationTracker extends Component {
       <View style={styles.container}>
         <StatusBar barStyle='light-content'/>
         <View>
-          <Text style={styles.currentLocation}> Your Current Location Is: </Text>
+          <Text style={styles.info}> Your Current Location Is: </Text>
         </View>
         <View>
-          <Text style={styles.currentLocation}> View Archived Locations </Text>
+          <Text style={styles.info}> View Archived Locations </Text>
           <DatePicker
             style={styles.dateField}
             date={this.state.date}
@@ -39,6 +39,7 @@ export default class LocationTracker extends Component {
             onDateChange={(date) => {this.setState({date: date})}}
           />
         </View>
+        <Text style={styles.info}> Send Location </Text>
 
         <TouchableOpacity
           style={styles.iconContainer}
@@ -62,7 +63,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#0DA8AD'
   },
-  currentLocation: {
+  info: {
     color: '#FFF',
     marginTop: 10,
     opacity: 0.7,
