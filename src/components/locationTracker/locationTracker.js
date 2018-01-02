@@ -39,6 +39,19 @@ export default class LocationTracker extends Component {
             onDateChange={(date) => {this.setState({date: date})}}
           />
         </View>
+
+        <TouchableOpacity
+          style={styles.iconContainer}
+          onPress={
+            () => alert('Location Sent')
+          }
+        >
+          <Image
+            style={styles.icon}
+            source={require('../../images/location-send-icon.png')}
+          />
+        </TouchableOpacity>
+
       </View>
     )
   }
@@ -61,5 +74,13 @@ const styles = StyleSheet.create({
     width: 200,
     alignItems: 'center',
     justifyContent: 'center',
+  },
+  icon: {
+    height: 140,
+    width: 140
+  },
+  iconContainer: {
+    alignItems: 'center',
+    flexGrow: 1
   }
 })
