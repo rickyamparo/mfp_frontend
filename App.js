@@ -5,7 +5,7 @@ import Splash from './src/components/splash/splash'
 import Login from './src/components/login/login'
 import Register from './src/components/register/register'
 import Dashboard from './src/components/dashboard/dashboard'
-import Location from './src/components/locationTracker/location'
+import LocationTracker from './src/components/locationTracker/locationTracker'
 
 export const SimpleApp = StackNavigator({
   Login: {screen: Login},
@@ -16,7 +16,7 @@ export const SimpleApp = StackNavigator({
 export default class App extends Component<{}> {
   render() {
     return (
-      <Dashboard />
+      <LocationTracker />
     );
   }
 }
