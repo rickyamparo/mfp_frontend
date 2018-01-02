@@ -77,10 +77,14 @@ const styles = StyleSheet.create({
   },
   icon: {
     height: 140,
-    width: 140
+    width: 140,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   iconContainer: {
     alignItems: 'center',
-    flexGrow: 1
+    justifyContent: 'center',
+    height: 140,
+    width: 140,
   }
 })
