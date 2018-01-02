@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import { View, Image, StyleSheet, TextInput, TouchableOpacity, Text, AsyncStorage, StatusBar } from 'react-native';
+import DatePicker from 'react-native-datepicker'
 
 export default class LocationTracker extends Component {
 
   constructor(props){
     super(props)
     this.state = { authToken: ''}
+    this.state = { date: new Date() }
   }
 
   componentDidMount = () => {
@@ -24,6 +26,18 @@ export default class LocationTracker extends Component {
         </View>
         <View>
           <Text style={styles.currentLocation}> View Archived Locations </Text>
+          <DatePicker
+            style={styles.dateField}
+            date={this.state.date}
+            mode="datetime"
+            placeholder="select date"
+            format="YYYY-MM-DD"
+            minDate="2016-01-01"
+            maxDate="2017-12-31"
+            confirmBtnText="Confirm"
+            cancelBtnText="Cancel"
+            onDateChange={(date) => {this.setState({date: date})}}
+          />
         </View>
       </View>
     )
@@ -41,5 +55,10 @@ const styles = StyleSheet.create({
     opacity: 0.7,
     fontSize: 20,
     textAlign: 'center'
+  },
+  dateField: {
+    marginTop: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
   }
 })
