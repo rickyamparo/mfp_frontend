@@ -57,7 +57,8 @@ const styles = StyleSheet.create({
     textAlign: 'center'
   },
   dateField: {
-    marginTop: 10,
+    height: 200,
+    width: 200,
     alignItems: 'center',
     justifyContent: 'center',
   }
