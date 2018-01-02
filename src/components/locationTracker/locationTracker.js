@@ -14,6 +14,7 @@ export default class LocationTracker extends Component {
       this.setState({'authToken': token})
     })
   }
+
   render (){
     return (
       <View style={styles.container}>
@@ -23,7 +24,7 @@ export default class LocationTracker extends Component {
         </View>
         <View>
           <Text style={styles.currentLocation}> View Archived Locations </Text>
-        </View
+        </View>
       </View>
     )
   }
