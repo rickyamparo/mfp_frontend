@@ -20,6 +20,18 @@ export default class LocationTracker extends Component {
     .then(async (token) => {
       this.setState({'authToken': token})
     })
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        this.setState({
+          latitude: position.coords.latitude,
+          longitude: position.coords.longitude,
+          error: null,
+        })
+      },
+      (error) => this.setState({ error: error.message }),
+      { enableHighAccuracy: true, timeout:20000, maximumAge: 1000},
+    )
   }
 
   render (){
@@ -28,6 +40,8 @@ export default class LocationTracker extends Component {
         <StatusBar barStyle='light-content'/>
         <View>
           <Text style={styles.info}> Your Current Location Is: </Text>
+          <Text>Latitude: {this.state.latitude}</Text>
+          <Text>Longitude: {this.state.longitude}</Text>
         </View>
         <View>
           <Text style={styles.info}> View Archived Locations </Text>
