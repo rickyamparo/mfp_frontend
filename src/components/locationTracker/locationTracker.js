@@ -6,8 +6,13 @@ export default class LocationTracker extends Component {
 
   constructor(props){
     super(props)
-    this.state = { authToken: ''}
-    this.state = { date: new Date() }
+    this.state = {
+      authToken: '',
+      date: new Date(),
+      latitude: null,
+      longitude: null,
+      error: null
+    }
   }
 
   componentDidMount = () => {
