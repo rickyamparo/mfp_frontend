@@ -34,7 +34,7 @@ export default class App extends Component {
                 navigator.geolocation.getCurrentPosition((position) => {
                     let initialPosition = JSON.stringify(position);
                     this.setState({ initialPosition });
-                }, error => alert(error), { enableHighAccuracy: false, timeout: 20000, maximumAge: 1000 });
+                }, error => alert('hello'), { enableHighAccuracy: false, timeout: 20000, maximumAge: 1000 });
             }.bind(this)
         ).catch((error) => {
             alert(error.message);
