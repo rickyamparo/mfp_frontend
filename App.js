@@ -7,6 +7,7 @@ import Register from './src/components/register/register'
 import Dashboard from './src/components/dashboard/dashboard'
 import LocationTracker from './src/components/locationTracker/locationTracker'
 import LocationServicesDialogBox from "react-native-android-location-services-dialog-box";
+import Permissions from 'react-native-permissions'
 
 export const SimpleApp = StackNavigator({
   Login: {screen: Login},
@@ -20,6 +21,10 @@ export default class App extends Component {
   }
 
   componentDidMount() {
+    Permissions.request('location').then(response => {
+      this.setState({ locationPermission: response })
+    })
+
     LocationServicesDialogBox.checkLocationServicesIsEnabled({
             message: "<h2>Use Location ?</h2>This app wants to change your device settings:<br/><br/>Use GPS, Wi-Fi, and cell network for location<br/><br/><a href='#'>Learn more</a>",
             ok: "YES",
@@ -34,7 +39,7 @@ export default class App extends Component {
                 navigator.geolocation.getCurrentPosition((position) => {
                     let initialPosition = JSON.stringify(position);
                     this.setState({ initialPosition });
-                }, error => alert('hello'), { enableHighAccuracy: false, timeout: 20000, maximumAge: 1000 });
+                }, error => alert(error.message), { enableHighAccuracy: true, timeout: 25000, maximumAge: 600000 });
             }.bind(this)
         ).catch((error) => {
             alert(error.message);
