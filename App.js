@@ -34,16 +34,7 @@ export default class App extends Component {
             openLocationServices: true, // false => Directly catch method is called if location services are turned off
             preventOutSideTouch: false, //true => To prevent the location services popup from closing when it is clicked outside
             preventBackClick: false //true => To prevent the location services popup from closing when it is clicked back button
-        }).then(function(success) {
-            // success => {alreadyEnabled: true, enabled: true, status: "enabled"}
-                navigator.geolocation.getCurrentPosition((position) => {
-                    let initialPosition = JSON.stringify(position);
-                    this.setState({ initialPosition });
-                }, error => alert(error.message), { enableHighAccuracy: true, timeout: 25000, maximumAge: 600000 });
-            }.bind(this)
-        ).catch((error) => {
-            alert(error.message);
-        });
+        })
 
         BackHandler.addEventListener('hardwareBackPress', () => { //(optional) you can use it if you need it
                LocationServicesDialogBox.forceCloseDialog();
@@ -52,7 +43,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <View><Text>{this.state.initialPosition}</Text></View>
+      <LocationTracker />
     );
   }
 }
