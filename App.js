@@ -35,7 +35,11 @@ export default class App extends Component {
             openLocationServices: true, // false => Directly catch method is called if location services are turned off
             preventOutSideTouch: false, //true => To prevent the location services popup from closing when it is clicked outside
             preventBackClick: false //true => To prevent the location services popup from closing when it is clicked back button
-        })
+        }).then(function(success) {
+          console.log(success); // success => {alreadyEnabled: false, enabled: true, status: "enabled"}
+        }).catch((error) => {
+          console.log(error.message); // error.message => "disabled"
+        });
 
         BackHandler.addEventListener('hardwareBackPress', () => { //(optional) you can use it if you need it
                LocationServicesDialogBox.forceCloseDialog();

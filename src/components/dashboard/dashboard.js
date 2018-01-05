@@ -20,8 +20,8 @@ export default class Dashboard extends Component {
   }
 
   render (){
+    const { navigate } = this.props.navigation;
     return (
-
       <View style={styles.container}>
       <StatusBar barStyle='light-content'/>
       <Text style={styles.header}> A React Native App by Ricky Amparo</Text>
@@ -32,7 +32,7 @@ export default class Dashboard extends Component {
             <TouchableOpacity
               style={styles.locationButton}
               onPress={
-                () => alert('Stop Pushing My Buttons!')
+                () => navigate('LocationTracker')
               }
             >
               <Image
