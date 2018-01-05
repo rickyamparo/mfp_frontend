@@ -9,6 +9,9 @@
   "dependencies": {
     "react": "16.0.0",
     "react-native": "0.51.0",
+    "react-native-android-location-services-dialog-box": "^2.4.3",
+    "react-native-datepicker": "^1.6.0",
+    "react-native-permissions": "^1.0.6",
     "react-navigation": "^1.0.0-beta.22"
   },
   "devDependencies": {
