@@ -12,7 +12,8 @@ import Permissions from 'react-native-permissions'
 export const SimpleApp = StackNavigator({
   Login: {screen: Login},
   Register: {screen: Register},
-  Dashboard: {screen: Dashboard}
+  Dashboard: {screen: Dashboard},
+  LocationTracker: {screen: LocationTracker}
 })
 
 export default class App extends Component {
