@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, TextInput, StyleSheet, TouchableOpacity, Text, AsyncStorage, StatusBar } from 'react-native';
+import { View, Image, TextInput, StyleSheet, TouchableOpacity, Text, AsyncStorage, StatusBar, Keyboard} from 'react-native';
 
 export default class Dashboard extends Component {
 
@@ -15,6 +15,10 @@ export default class Dashboard extends Component {
     })
   }
 
+  static navigationOptions = {
+    header: null
+  }
+
   render (){
     return (
 
@@ -25,19 +29,26 @@ export default class Dashboard extends Component {
         <View style={styles.dashboardRow}>
 
           <View style={styles.dashboardIcon}>
-            <Image
-              style={styles.logo}
-              source={require('../../images/location-icon.png')}
-            />
-            <Text style={styles.info}> Location Tracker </Text>
+            <TouchableOpacity
+              style={styles.locationButton}
+              onPress={
+                () => alert('Stop Pushing My Buttons!')
+              }
+            >
+              <Image
+                style={styles.logo}
+                source={require('../../images/location-icon.png')}
+              />
+              <Text style={styles.info}> Location Tracker </Text>
+            </TouchableOpacity>
           </View>
 
           <View style={styles.dashboardIcon}>
-            <Image
-              style={styles.logo}
-              source={require('../../images/read-mind.png')}
-            />
-            <Text style={styles.info}> Predict Location </Text>
+              <Image
+                style={styles.logo}
+                source={require('../../images/read-mind.png')}
+                />
+                <Text style={styles.info}> Predict Location </Text>
           </View>
 
         </View>

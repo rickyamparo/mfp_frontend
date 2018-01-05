@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet, TouchableOpacity, Text, AsyncStorage } from 'react-native';
+import { View, TextInput, StyleSheet, TouchableOpacity, Text, AsyncStorage, Keyboard } from 'react-native';
 import styles from '../../../src/styles/login/loginFormStyles'
 
 const doSignIn = (email, password) => {
@@ -72,6 +72,7 @@ export default class LoginForm extends Component {
             .then((auth_token) => {
               navigate('Dashboard')
             })
+            .then(() => Keyboard.dismiss())
           }
         >
           <Text style={styles.buttonText}>LOGIN</Text>
