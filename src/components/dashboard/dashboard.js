@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Image, TextInput, StyleSheet, TouchableOpacity, Text, AsyncStorage, StatusBar } from 'react-native';
+import { View, Image, TextInput, StyleSheet, TouchableOpacity, Text, AsyncStorage, StatusBar, Keyboard} from 'react-native';
 
 export default class Dashboard extends Component {
 
@@ -15,9 +15,13 @@ export default class Dashboard extends Component {
     })
   }
 
-  render (){
-    return (
+  static navigationOptions = {
+    header: null
+  }
 
+  render (){
+    const { navigate } = this.props.navigation;
+    return (
       <View style={styles.container}>
       <StatusBar barStyle='light-content'/>
       <Text style={styles.header}> A React Native App by Ricky Amparo</Text>
@@ -25,19 +29,26 @@ export default class Dashboard extends Component {
         <View style={styles.dashboardRow}>
 
           <View style={styles.dashboardIcon}>
-            <Image
-              style={styles.logo}
-              source={require('../../images/location-icon.png')}
-            />
-            <Text style={styles.info}> Location Tracker </Text>
+            <TouchableOpacity
+              style={styles.locationButton}
+              onPress={
+                () => navigate('LocationTracker')
+              }
+            >
+              <Image
+                style={styles.logo}
+                source={require('../../images/location-icon.png')}
+              />
+              <Text style={styles.info}> Location Tracker </Text>
+            </TouchableOpacity>
           </View>
 
           <View style={styles.dashboardIcon}>
-            <Image
-              style={styles.logo}
-              source={require('../../images/read-mind.png')}
-            />
-            <Text style={styles.info}> Predict Location </Text>
+              <Image
+                style={styles.logo}
+                source={require('../../images/read-mind.png')}
+                />
+                <Text style={styles.info}> Predict Location </Text>
           </View>
 
         </View>

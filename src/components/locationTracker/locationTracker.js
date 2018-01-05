@@ -2,6 +2,31 @@ import React, { Component } from 'react';
 import { View, Image, StyleSheet, TextInput, TouchableOpacity, Text, AsyncStorage, StatusBar } from 'react-native';
 import DatePicker from 'react-native-datepicker'
 
+const sendLocation = (user_id, latitude, longitude, auth_token) => {
+  return fetch('https://vast-wildwood-58678.herokuapp.com/locations', {
+    method: 'POST',
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: auth_token
+    },
+    body: JSON.stringify({
+      location:{
+        latitude: latitude,
+        longitude: longitude,
+        user_id: user_id
+      }
+    })
+  })
+  .then((response) => response.json())
+  .then((responseJson) => {
+    alert(responseJson.created_at)
+  })
+  .catch((error) => {
+    alert(error)
+  })
+}
+
 export default class LocationTracker extends Component {
 
   constructor(props){
@@ -21,6 +46,11 @@ export default class LocationTracker extends Component {
       this.setState({'authToken': token})
     })
 
+    AsyncStorage.getItem('user_id')
+    .then(async (id) => {
+      this.setState({'userId': id})
+    })
+
     navigator.geolocation.getCurrentPosition(
       (position) => {
         this.setState({
@@ -32,6 +62,10 @@ export default class LocationTracker extends Component {
       (error) => this.setState({ error: error.message }),
       { enableHighAccuracy: true, timeout:20000, maximumAge: 1000},
     )
+  }
+
+  static navigationOptions = {
+    header: null
   }
 
   render (){
@@ -63,7 +97,7 @@ export default class LocationTracker extends Component {
         <TouchableOpacity
           style={styles.iconContainer}
           onPress={
-            () => alert('Location Sent')
+            () => sendLocation(this.state.userId, this.state.latitude, this.state.longitude, this.state.authToken)
           }
         >
           <Image
