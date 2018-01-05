@@ -8,6 +8,7 @@ import Dashboard from './src/components/dashboard/dashboard'
 import LocationTracker from './src/components/locationTracker/locationTracker'
 import LocationServicesDialogBox from "react-native-android-location-services-dialog-box";
 import Permissions from 'react-native-permissions'
+import Prediction from './src/components/prediction/prediction'
 
 export const SimpleApp = StackNavigator({
   Login: {screen: Login},
