@@ -16,7 +16,7 @@ const doSignIn = (email, password) => {
   })
   .then((response) => response.json())
   .then((responseJson) => {
-    return responseJson.auth_token
+    return responseJson
   })
   .catch((error) => {
     alert(error)
@@ -61,9 +61,10 @@ export default class LoginForm extends Component {
           style={styles.buttonLogin}
           onPress={
             () => doSignIn(this.state.emailInput, this.state.passwordInput)
-            .then(async (auth_token) => {
+            .then(async (auth_response) => {
               try {
-                await AsyncStorage.setItem('auth_token', auth_token)
+                await AsyncStorage.setItem('auth_token', auth_response.auth_token)
+                await AsyncStorage.setItem('user_id', auth_response.user_id)
               } catch (error) {
                 alert(error)
               }
