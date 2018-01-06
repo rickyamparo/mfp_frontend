@@ -82,7 +82,7 @@ export default class LocationTracker extends Component {
           <DatePicker
             style={styles.dateField}
             date={this.state.date}
-            mode="datetime"
+            mode="date"
             placeholder="select date"
             format="YYYY-MM-DD"
             minDate="2016-01-01"
