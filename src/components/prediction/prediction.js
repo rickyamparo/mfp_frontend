@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, TextInput, StyleSheet, TouchableOpacity, Text, AsyncStorage, Keyboard } from 'react-native';
+import { View, TextInput, StyleSheet, TouchableOpacity, Text, AsyncStorage, Keyboard, StatusBar } from 'react-native';
 
 export default class Prediction extends Component {
   constructor(props){
@@ -34,3 +34,16 @@ export default class Prediction extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#0DA8AD'
+  },
+  dateField: {
+    height: 200,
+    width: 200,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+})
