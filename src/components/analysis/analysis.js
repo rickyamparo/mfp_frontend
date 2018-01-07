@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Image, TextInput, StyleSheet, TouchableOpacity, Text, AsyncStorage, StatusBar, Keyboard} from 'react-native';
+import styles from '../../../src/styles/analysis/analysisStyles'
 
 const getData = (user_id, auth_token, action) => {
   return fetch(`https://vast-wildwood-58678.herokuapp.com/api/v1/business_intelligence/${action}?user_id=${user_id}`, {
@@ -142,53 +143,3 @@ export default class Analysis extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex:1,
-    backgroundColor: '#09305B'
-  },
-  title: {
-    color: '#FFF',
-    marginTop: 10,
-    opacity: 0.7,
-    fontSize: 20,
-    textAlign: 'center'
-  },
-  analyticRow: {
-    flexGrow: 1,
-    paddingHorizontal: 20,
-    paddingVertical: 20
-  },
-  analyticQuery: {
-    backgroundColor: '#075473',
-    flexDirection: 'row',
-    flex: 1
-  },
-  queryText : {
-    color: '#FFF',
-    opacity: 0.7,
-    fontSize: 15,
-    textAlign: 'center',
-    textAlignVertical: 'center'
-  },
-  analyticResponse: {
-    backgroundColor: '#0DA8AD',
-    flexDirection: 'row',
-    flex: 1
-  },
-  responseText: {
-    color: 'black',
-    fontSize: 10,
-    textAlignVertical: 'center'
-  },
-  switchButton: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    marginBottom: 10
-  },
-  switchIcon: {
-    width: 80,
-    height: 80
-  }
-})
