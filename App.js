@@ -17,7 +17,8 @@ export const SimpleApp = StackNavigator({
   Register: {screen: Register},
   Dashboard: {screen: Dashboard},
   LocationTracker: {screen: LocationTracker},
-  Prediction: {screen: Prediction}
+  Prediction: {screen: Prediction},
+  Analysis: {screen: Analysis}
 })
 
 export default class App extends Component {
@@ -52,7 +53,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <Analysis />
+      <SimpleApp />
     );
   }
 }

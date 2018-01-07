@@ -1,17 +1,15 @@
 import React, { Component } from 'react';
 import { View, Image, TextInput, StyleSheet, TouchableOpacity, Text, AsyncStorage, StatusBar, Keyboard} from 'react-native';
 
-const getMostVisited = (userId, authToken) => {
-  return fetch(`https://vast-wildwood-58678.herokuapp.com/api/v1/business_intelligence/most_visited?user_id=${userId}`, {
+const getData = (user_id, auth_token, action) => {
+  return fetch(`https://vast-wildwood-58678.herokuapp.com/api/v1/business_intelligence/${action}?user_id=${user_id}`, {
     headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      Authorization: authToken
+      Authorization: auth_token
     }
   })
   .then((response) => response.json())
   .then((responseJson) => {
-    alert(responseJson)
+    return responseJson
   })
 }
 
@@ -20,30 +18,47 @@ export default class Analysis extends Component {
   constructor(props){
     super(props)
     this.state = {
-      authToken: '',
-      userId: ''
+      auth_token: '',
+      user_id: ''
     }
   }
 
   componentDidMount = () => {
     AsyncStorage.getItem('auth_token')
     .then(async (token) => {
-      this.setState({'authToken': token})
+      await this.setState({'auth_token': token})
     })
 
     AsyncStorage.getItem('user_id')
     .then(async (id) => {
-      this.setState({'userId': id})
-    }).then((response) =>{
-      getMostVisited(this.state.userId, this.state.authToken)
-    }).then((mostVisited) => {
-      this.setState({'mostVisited': mostVisited})
+      await this.setState({'user_id': id})
+    })
+    .then(async () =>{
+      return getData(this.state.user_id, this.state.auth_token, 'most_visited')
+    })
+    .then(async (most_visited) => {
+      await this.setState({
+        'mv_longitude': most_visited.coordinates.longitude,
+        'mv_latitude': most_visited.coordinates.latitude,
+        'mv_times_visited': most_visited.times_visited
+      })
+    })
+    .then(async () =>{
+      return getData(this.state.user_id, this.state.auth_token, 'least_visited')
+    })
+    .then(async (least_visited) => {
+      await this.setState({
+        'lv_longitude': least_visited.coordinates.longitude,
+        'lv_latitude': least_visited.coordinates.latitude,
+        'lv_times_visited': least_visited.times_visited
+      })
     })
   }
 
   static navigationOptions = {
     header: null
   }
+
   render(){
     return (
       <View style={styles.container}>
@@ -56,6 +71,7 @@ export default class Analysis extends Component {
           </View>
 
           <View style={styles.analyticResponse}>
+            <Text> Your Location was: {this.state.mv_longitude} by {this.state.mv_latitude} {"\n"} You visited this place {this.state.mv_times_visited} times </Text>
           </View>
 
         </View>
@@ -67,6 +83,7 @@ export default class Analysis extends Component {
           </View>
 
           <View style={styles.analyticResponse}>
+            <Text> Your Location was: {this.state.lv_longitude} by {this.state.lv_latitude} {"\n"} You visited this place {this.state.lv_times_visited} times </Text>
           </View>
 
         </View>

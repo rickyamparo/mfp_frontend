@@ -63,11 +63,18 @@ export default class Dashboard extends Component {
         <View style={styles.dashboardRow}>
 
           <View style={styles.dashboardIcon}>
-            <Image
-              style={styles.logo}
-              source={require('../../images/analysis-icon.png')}
-            />
-            <Text style={styles.info}> User Account </Text>
+            <TouchableOpacity
+              style={styles.locationButton}
+              onPress={
+                () => navigate('Analysis')
+              }
+            >
+              <Image
+                style={styles.logo}
+                source={require('../../images/analysis-icon.png')}
+              />
+            <Text style={styles.info}> Data Analysis </Text>
+            </TouchableOpacity>
           </View>
 
           <View style={styles.dashboardIcon}>
