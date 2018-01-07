@@ -30,6 +30,7 @@ export default class LocationTracker extends Component {
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
+        alert(position.coords)
         this.setState({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
