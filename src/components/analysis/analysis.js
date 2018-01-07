@@ -177,6 +177,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     flex: 1
   },
+  responseText: {
+    color: 'black',
+    fontSize: 10,
+    textAlignVertical: 'center'
+  },
   switchButton: {
     alignItems: 'center',
     justifyContent: 'center',
