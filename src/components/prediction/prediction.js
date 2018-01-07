@@ -35,6 +35,7 @@ export default class Prediction extends Component {
         <StatusBar barStyle='light-content'/>
         <View>
           <Text style={styles.info}> Please select a date in the future. </Text>
+          <Text style={styles.info}> My Database will predict where you will be. </Text>
           <DatePicker
             style={styles.dateField}
             date={this.state.date}
