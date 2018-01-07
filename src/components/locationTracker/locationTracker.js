@@ -1,31 +1,8 @@
 import React, { Component } from 'react';
 import { View, Image, StyleSheet, TextInput, TouchableOpacity, Text, AsyncStorage, StatusBar } from 'react-native';
 import DatePicker from 'react-native-datepicker'
-
-const sendLocation = (user_id, latitude, longitude, auth_token) => {
-  return fetch('https://vast-wildwood-58678.herokuapp.com/locations', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      Authorization: auth_token
-    },
-    body: JSON.stringify({
-      location:{
-        latitude: latitude,
-        longitude: longitude,
-        user_id: user_id
-      }
-    })
-  })
-  .then((response) => response.json())
-  .then((responseJson) => {
-    alert(responseJson.created_at)
-  })
-  .catch((error) => {
-    alert(error)
-  })
-}
+import sendLocation from '../../../src/fetch/createLocation'
+import styles from '../../../src/styles/locationTracker/locationTrackerStyles'
 
 export default class LocationTracker extends Component {
 
@@ -110,35 +87,3 @@ export default class LocationTracker extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#0DA8AD'
-  },
-  info: {
-    color: '#FFF',
-    marginTop: 10,
-    opacity: 0.7,
-    fontSize: 20,
-    textAlign: 'center'
-  },
-  dateField: {
-    height: 200,
-    width: 200,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  icon: {
-    height: 140,
-    width: 140,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  iconContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    height: 140,
-    width: 140,
-  }
-})

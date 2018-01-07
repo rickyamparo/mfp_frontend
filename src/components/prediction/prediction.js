@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, StyleSheet, Text, AsyncStorage, StatusBar } from 'react-native';
 import DatePicker from 'react-native-datepicker'
+import styles from '../../../src/styles/prediction/predictionStyles'
 
 export default class Prediction extends Component {
   constructor(props){
@@ -53,23 +54,3 @@ export default class Prediction extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#0DA8AD'
-  },
-  info : {
-    color: '#FFF',
-    marginTop: 10,
-    opacity: 0.7,
-    fontSize: 20,
-    textAlign: 'center'
-  },
-  dateField: {
-    height: 200,
-    width: 200,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-})
