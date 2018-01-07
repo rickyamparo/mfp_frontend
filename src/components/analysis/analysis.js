@@ -75,6 +75,12 @@ export default class Analysis extends Component {
 
         </View>
 
+        <View style={styles.switchButton}>
+          <Image
+            style={styles.switchIcon}
+            source={require('../../images/switch-icon.png')}
+            />
+        </View>
       </View>
     )
   }
@@ -113,5 +119,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#0DA8AD',
     flexDirection: 'row',
     flex: 1
+  },
+  switchButton: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginBottom: 10
+  },
+  switchIcon: {
+    width: 80,
+    height: 80
   }
 })
