@@ -1,18 +1,7 @@
 import React, { Component } from 'react';
 import { View, Image, TextInput, StyleSheet, TouchableOpacity, Text, AsyncStorage, StatusBar, Keyboard} from 'react-native';
 import styles from '../../../src/styles/analysis/analysisStyles'
-
-const getData = (user_id, auth_token, action) => {
-  return fetch(`https://vast-wildwood-58678.herokuapp.com/api/v1/business_intelligence/${action}?user_id=${user_id}`, {
-    headers: {
-      Authorization: auth_token
-    }
-  })
-  .then((response) => response.json())
-  .then((responseJson) => {
-    return responseJson
-  })
-}
+import getData from '../../../src/fetch/businessIntelligence'
 
 export default class Analysis extends Component {
 
