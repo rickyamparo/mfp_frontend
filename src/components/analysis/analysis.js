@@ -26,5 +26,18 @@ export default class Analysis extends Component {
   static navigationOptions = {
     header: null
   }
-  
+  render(){
+    return (
+      <View style={styles.container}>
+        <StatusBar barStyle='light-content'/>
+      </View>
+    )
+  }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex:1,
+    backgroundColor: '#09305B'
+  }
+})
