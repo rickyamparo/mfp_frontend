@@ -30,6 +30,7 @@ export default class Analysis extends Component {
     return (
       <View style={styles.container}>
         <StatusBar barStyle='light-content'/>
+        <Text style={styles.title}> Based on your Location History: </Text>
       </View>
     )
   }
@@ -39,5 +40,12 @@ const styles = StyleSheet.create({
   container: {
     flex:1,
     backgroundColor: '#09305B'
+  },
+  title: {
+    color: '#FFF',
+    marginTop: 10,
+    opacity: 0.7,
+    fontSize: 20,
+    textAlign: 'center'
   }
 })
