@@ -1,6 +1,20 @@
 import React, { Component } from 'react';
 import { View, Image, TextInput, StyleSheet, TouchableOpacity, Text, AsyncStorage, StatusBar, Keyboard} from 'react-native';
 
+const getMostVisited = (userId, authToken) => {
+  return fetch(`https://vast-wildwood-58678.herokuapp.com/api/v1/business_intelligence/most_visited?user_id=${userId}`, {
+    headers: {
+      Accept: 'application/json',
+      'Content-Type': 'application/json',
+      Authorization: authToken
+    }
+  })
+  .then((response) => response.json())
+  .then((responseJson) => {
+    alert(responseJson)
+  })
+}
+
 export default class Analysis extends Component {
 
   constructor(props){
@@ -20,6 +34,10 @@ export default class Analysis extends Component {
     AsyncStorage.getItem('user_id')
     .then(async (id) => {
       this.setState({'userId': id})
+    }).then((response) =>{
+      getMostVisited(this.state.userId, this.state.authToken)
+    }).then((mostVisited) => {
+      this.setState({'mostVisited': mostVisited})
     })
   }
 
