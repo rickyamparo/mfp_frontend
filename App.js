@@ -5,10 +5,12 @@ import Splash from './src/components/splash/splash'
 import Login from './src/components/login/login'
 import Register from './src/components/register/register'
 import Dashboard from './src/components/dashboard/dashboard'
+import Prediction from './src/components/prediction/prediction'
+import Analysis from './src/components/analysis/analysis'
 import LocationTracker from './src/components/locationTracker/locationTracker'
 import LocationServicesDialogBox from "react-native-android-location-services-dialog-box";
 import Permissions from 'react-native-permissions'
-import Prediction from './src/components/prediction/prediction'
+
 
 export const SimpleApp = StackNavigator({
   Login: {screen: Login},
