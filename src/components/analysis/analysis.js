@@ -53,6 +53,26 @@ export default class Analysis extends Component {
         'lv_times_visited': least_visited.times_visited
       })
     })
+    .then(async () =>{
+      return getData(this.state.user_id, this.state.auth_token, 'favorite_weekday')
+    })
+    .then(async (wkday_visited) => {
+      await this.setState({
+        'wday_longitude': wkday_visited.coordinates.longitude,
+        'wday_latitude': wkday_visited.coordinates.latitude,
+        'wday_times_visited': wkday_visited.times_visited
+      })
+    })
+    .then(async () =>{
+      return getData(this.state.user_id, this.state.auth_token, 'favorite_weekend')
+    })
+    .then(async (wkend_visited) => {
+      await this.setState({
+        'wend_longitude': wkend_visited.coordinates.longitude,
+        'wend_latitude': wkend_visited.coordinates.latitude,
+        'wend_times_visited': wkend_visited.times_visited
+      })
+    })
   }
 
   static navigationOptions = {
@@ -95,6 +115,7 @@ export default class Analysis extends Component {
           </View>
 
           <View style={styles.analyticResponse}>
+            <Text> Your Location was: {this.state.wday_longitude} by {this.state.wday_latitude} {"\n"} You visited this place {this.state.wday_times_visited} times </Text>
           </View>
 
         </View>
@@ -106,6 +127,7 @@ export default class Analysis extends Component {
           </View>
 
           <View style={styles.analyticResponse}>
+            <Text> Your Location was: {this.state.wend_longitude} by {this.state.wend_latitude} {"\n"} You visited this place {this.state.wend_times_visited} times </Text>
           </View>
 
         </View>
