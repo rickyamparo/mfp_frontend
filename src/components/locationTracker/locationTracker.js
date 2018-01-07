@@ -1,31 +1,7 @@
 import React, { Component } from 'react';
 import { View, Image, StyleSheet, TextInput, TouchableOpacity, Text, AsyncStorage, StatusBar } from 'react-native';
 import DatePicker from 'react-native-datepicker'
-
-const sendLocation = (userId, latitude, longitude, authToken) => {
-  return fetch('https://vast-wildwood-58678.herokuapp.com/locations', {
-    method: 'POST',
-    headers: {
-      Accept: 'application/json',
-      'Content-Type': 'application/json',
-      Authorization: authToken
-    },
-    body: JSON.stringify({
-      location:{
-        latitude: latitude,
-        longitude: longitude,
-        user_id: userId
-      }
-    })
-  })
-  .then((response) => response.json())
-  .then((responseJson) => {
-    alert(responseJson.created_at)
-  })
-  .catch((error) => {
-    alert(error)
-  })
-}
+import sendLocation from '../../../src/fetch/createLocation'
 
 export default class LocationTracker extends Component {
 
