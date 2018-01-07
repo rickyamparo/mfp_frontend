@@ -31,6 +31,46 @@ export default class Analysis extends Component {
       <View style={styles.container}>
         <StatusBar barStyle='light-content'/>
         <Text style={styles.title}> Based on your Location History: </Text>
+        <View style={styles.analyticRow}>
+
+          <View style={styles.analyticQuery}>
+          </View>
+
+          <View style={styles.analyticResponse}>
+          </View>
+
+        </View>
+
+        <View style={styles.analyticRow}>
+
+          <View style={styles.analyticQuery}>
+          </View>
+
+          <View style={styles.analyticResponse}>
+          </View>
+
+        </View>
+
+        <View style={styles.analyticRow}>
+
+          <View style={styles.analyticQuery}>
+          </View>
+
+          <View style={styles.analyticResponse}>
+          </View>
+
+        </View>
+
+        <View style={styles.analyticRow}>
+
+          <View style={styles.analyticQuery}>
+          </View>
+
+          <View style={styles.analyticResponse}>
+          </View>
+
+        </View>
+        
       </View>
     )
   }
@@ -47,5 +87,20 @@ const styles = StyleSheet.create({
     opacity: 0.7,
     fontSize: 20,
     textAlign: 'center'
+  },
+  analyticRow: {
+    flexGrow: 1,
+    paddingHorizontal: 20,
+    paddingVertical: 20
+  },
+  analyticQuery: {
+    backgroundColor: '#075473',
+    flexDirection: 'row',
+    flex: 1
+  },
+  analyticResponse: {
+    backgroundColor: '#0DA8AD',
+    flexDirection: 'row',
+    flex: 1
   }
 })
