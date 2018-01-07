@@ -44,11 +44,18 @@ export default class Dashboard extends Component {
           </View>
 
           <View style={styles.dashboardIcon}>
+            <TouchableOpacity
+              style={styles.locationButton}
+              onPress={
+                () => navigate('Prediction')
+              }
+            >
               <Image
                 style={styles.logo}
                 source={require('../../images/read-mind.png')}
                 />
                 <Text style={styles.info}> Predict Location </Text>
+            </TouchableOpacity>
           </View>
 
         </View>
@@ -58,7 +65,7 @@ export default class Dashboard extends Component {
           <View style={styles.dashboardIcon}>
             <Image
               style={styles.logo}
-              source={require('../../images/user-icon2.png')}
+              source={require('../../images/analysis-icon.png')}
             />
             <Text style={styles.info}> User Account </Text>
           </View>
