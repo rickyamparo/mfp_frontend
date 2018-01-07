@@ -34,6 +34,7 @@ export default class Analysis extends Component {
         <View style={styles.analyticRow}>
 
           <View style={styles.analyticQuery}>
+            <Text style={styles.queryText}> Your most visited Location: </Text>
           </View>
 
           <View style={styles.analyticResponse}>
@@ -44,6 +45,7 @@ export default class Analysis extends Component {
         <View style={styles.analyticRow}>
 
           <View style={styles.analyticQuery}>
+            <Text style={styles.queryText}> Your least visited Location: </Text>
           </View>
 
           <View style={styles.analyticResponse}>
@@ -54,6 +56,7 @@ export default class Analysis extends Component {
         <View style={styles.analyticRow}>
 
           <View style={styles.analyticQuery}>
+            <Text style={styles.queryText}> Favorite spot during the week: </Text>
           </View>
 
           <View style={styles.analyticResponse}>
@@ -64,13 +67,14 @@ export default class Analysis extends Component {
         <View style={styles.analyticRow}>
 
           <View style={styles.analyticQuery}>
+            <Text style={styles.queryText}> Favorite spot during the weekend: </Text>
           </View>
 
           <View style={styles.analyticResponse}>
           </View>
 
         </View>
-        
+
       </View>
     )
   }
@@ -97,6 +101,13 @@ const styles = StyleSheet.create({
     backgroundColor: '#075473',
     flexDirection: 'row',
     flex: 1
+  },
+  queryText : {
+    color: '#FFF',
+    opacity: 0.7,
+    fontSize: 15,
+    textAlign: 'center',
+    textAlignVertical: 'center'
   },
   analyticResponse: {
     backgroundColor: '#0DA8AD',
