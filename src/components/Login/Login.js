@@ -2,8 +2,10 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet, Image, StatusBar, TouchableOpacity } from 'react-native';
 import LoginForm from './login_form'
 import styles from '../../../src/styles/login/loginStyles'
+import LocationServicesDialogBox from "react-native-android-location-services-dialog-box";
 
 export default class Login extends Component {
+
   static navigationOptions = {
     header: null
   };
