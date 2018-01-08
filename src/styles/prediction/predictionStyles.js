@@ -4,20 +4,26 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0DA8AD'
+    backgroundColor: '#09305B',
+    alignItems: 'center'
+  },
+  infoContainer: {
+    flexDirection: 'row',
+    flexGrow: 1,
+    paddingVertical: 20
   },
   info : {
     color: '#FFF',
-    marginTop: 10,
-    opacity: 0.7,
     fontSize: 20,
-    textAlign: 'center'
+    textAlign: 'center',
+    paddingVertical: 20
   },
-  dateField: {
-    height: 200,
+  dateContainer: {
+    flexDirection: 'row',
+    height: 70,
     width: 200,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
 })
 
