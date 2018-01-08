@@ -29,9 +29,8 @@ export default class LocationTracker extends Component {
     })
 
     navigator.geolocation.getCurrentPosition(
-      (position) => {
-        alert(position.coords)
-        this.setState({
+      async (position) => {
+        await this.setState({
           latitude: position.coords.latitude,
           longitude: position.coords.longitude,
           error: null,
@@ -50,40 +49,52 @@ export default class LocationTracker extends Component {
     return (
       <View style={styles.container}>
         <StatusBar barStyle='light-content'/>
-        <View>
-          <Text style={styles.info}> Your Current Location Is: </Text>
-          <Text>Latitude: {this.state.latitude}</Text>
-          <Text>Longitude: {this.state.longitude}</Text>
+        <View style={styles.infoContainer}>
+          <Text style={styles.info}> Your Current Location Is: {"\n"} {this.state.longitude} by {this.state.latitude} </Text>
         </View>
-        <View>
+        <View style={styles.infoContainer}>
           <Text style={styles.info}> View Archived Locations </Text>
+        </View>
+        <View style={styles.dateContainer}>
           <DatePicker
-            style={styles.dateField}
             date={this.state.date}
             mode="date"
-            placeholder="select date"
             format="YYYY-MM-DD"
-            minDate="2016-01-01"
+            minDate="2017-01-01"
             maxDate="2017-12-31"
             confirmBtnText="Confirm"
             cancelBtnText="Cancel"
+            customStyles={
+              {dateIcon: {
+                position: 'absolute',
+                left: 0,
+                top: 4,
+                marginLeft: 0
+              },
+              dateInput: {
+                marginLeft: 36,
+              },
+              dateText: {
+                color: '#FFF'
+              }
+            }}
             onDateChange={(date) => {this.setState({date: date})}}
           />
         </View>
-        <Text style={styles.info}> Send Location </Text>
-
-        <TouchableOpacity
-          style={styles.iconContainer}
-          onPress={
-            () => sendLocation(this.state.userId, this.state.latitude, this.state.longitude, this.state.authToken)
-          }
-        >
-          <Image
-            style={styles.icon}
-            source={require('../../images/location-send-icon.png')}
-          />
-        </TouchableOpacity>
-
+        <View style={styles.infoContainer}>
+          <Text style={styles.info}> Send Location </Text>
+        </View>
+        <View style={styles.infoContainer}>
+          <TouchableOpacity
+            style={styles.iconContainer}
+            onPress={() => sendLocation(this.state.userId, this.state.latitude, this.state.longitude, this.state.authToken)}
+          >
+            <Image
+              style={styles.icon}
+              source={require('../../images/location-send-icon.png')}
+            />
+          </TouchableOpacity>
+        </View>
       </View>
     )
   }

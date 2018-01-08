@@ -4,30 +4,34 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#09305B'
+    backgroundColor: '#09305B',
+    alignItems: 'center'
+  },
+  infoContainer: {
+    flexDirection: 'row',
+    flexGrow: 1
+  },
+  dateContainer: {
+    flexDirection: 'row',
+    height: 70,
+    width: 200,
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   info: {
     color: '#FFF',
-    marginTop: 10,
-    opacity: 0.7,
     fontSize: 20,
-    textAlign: 'center'
+    textAlign: 'center',
+    paddingVertical: 15
   },
   dateField: {
-    height: 200,
     width: 200,
-    alignItems: 'center',
-    justifyContent: 'center',
   },
   icon: {
     height: 140,
     width: 140,
-    alignItems: 'center',
-    justifyContent: 'center'
   },
   iconContainer: {
-    alignItems: 'center',
-    justifyContent: 'center',
     height: 140,
     width: 140,
   }
