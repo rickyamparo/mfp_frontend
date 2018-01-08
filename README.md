@@ -14,9 +14,10 @@ My Favorite places is a location tracking app that can predict your future locat
 
 ### App Setup 
 After installing all of the necessary components:
-1. open your android emulator
-2. run `npm start`
-3. run `react-native run-android`
+1. clone repo
+2. open your android emulator
+3. run `npm start`
+4. run `react-native run-android`
 
 ### Backend
 [MFP Backend](https://github.com/rickyamparo/mfp_backend)
