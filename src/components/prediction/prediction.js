@@ -34,21 +34,36 @@ export default class Prediction extends Component {
     return (
       <View style={styles.container}>
         <StatusBar barStyle='light-content'/>
-        <View>
-          <Text style={styles.info}> Please select a date in the future. </Text>
-          <Text style={styles.info}> My Database will predict where you will be. </Text>
+        <View style= {styles.infoContainer}>
+          <Text style={styles.info}> Please select a date in the future. {'\n'} My Database will predict where you will be. </Text>
+        </View>
+        <View style= {styles.infoContainer}>
           <DatePicker
-            style={styles.dateField}
             date={this.state.date}
             mode="date"
-            placeholder="select date"
             format="YYYY-MM-DD"
-            minDate="2017-12-31"
-            maxDate="2020-12-31"
+            minDate="2018-01-01"
+            maxDate="2018-12-31"
             confirmBtnText="Confirm"
             cancelBtnText="Cancel"
+            customStyles={
+              {dateIcon: {
+                position: 'absolute',
+                left: 0,
+                top: 4,
+                marginLeft: 0
+              },
+              dateInput: {
+                marginLeft: 36,
+              },
+              dateText: {
+                color: '#FFF'
+              }
+            }}
             onDateChange={(date) => {this.setState({date: date})}}
           />
+        </View>
+        <View style= {styles.infoContainer}>
         </View>
       </View>
     )
