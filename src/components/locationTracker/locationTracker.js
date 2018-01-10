@@ -82,7 +82,7 @@ export default class LocationTracker extends Component {
           />
         </View>
         <View style={styles.infoContainer}>
-          <Text style={styles.info}> Send Location </Text>
+          <Text style={styles.info}> Save Location </Text>
         </View>
         <View style={styles.infoContainer}>
           <TouchableOpacity
@@ -91,7 +91,7 @@ export default class LocationTracker extends Component {
           >
             <Image
               style={styles.icon}
-              source={require('../../images/location-send-icon.png')}
+              source={require('../../images/location-send-icon-white.png')}
             />
           </TouchableOpacity>
         </View>

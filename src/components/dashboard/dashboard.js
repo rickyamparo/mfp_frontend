@@ -38,7 +38,7 @@ export default class Dashboard extends Component {
             >
               <Image
                 style={styles.logo}
-                source={require('../../images/location-icon.png')}
+                source={require('../../images/location-icon-white.png')}
               />
               <Text style={styles.info}> Location Tracker </Text>
             </TouchableOpacity>
@@ -53,7 +53,7 @@ export default class Dashboard extends Component {
             >
               <Image
                 style={styles.logo}
-                source={require('../../images/read-mind.png')}
+                source={require('../../images/read-mind-white.png')}
                 />
                 <Text style={styles.info}> Predict Location </Text>
             </TouchableOpacity>
@@ -72,7 +72,7 @@ export default class Dashboard extends Component {
             >
               <Image
                 style={styles.logo}
-                source={require('../../images/analysis-icon.png')}
+                source={require('../../images/analysis-icon-white.png')}
               />
             <Text style={styles.info}> Data Analysis </Text>
             </TouchableOpacity>
@@ -81,7 +81,7 @@ export default class Dashboard extends Component {
           <View style={styles.dashboardIcon}>
             <Image
               style={styles.logo}
-              source={require('../../images/info-icon.png')}
+              source={require('../../images/about-icon-white.png')}
             />
             <Text style={styles.info}> About MFP </Text>
           </View>
