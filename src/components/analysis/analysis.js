@@ -125,7 +125,7 @@ export default class Analysis extends Component {
         <View style={styles.switchButton}>
           <Image
             style={styles.switchIcon}
-            source={require('../../images/switch-icon.png')}
+            source={require('../../images/switch-icon-white.png')}
             />
         </View>
       </View>
